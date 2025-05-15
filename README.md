@@ -45,6 +45,7 @@ projeto-vendas/
 ├── admin.py                 # Interface e lógica para o administrador
 ├── dados.py                 # Lista de produtos e lógica compartilhada
 └── README.md                # Documentação do projeto
+
 👤 Credenciais de Administrador
 Usuário: admin
 
@@ -69,6 +70,7 @@ Este projeto foi desenvolvido como trabalho acadêmico.
 Todos os dados são armazenados em memória — ao fechar o programa, as alterações são perdidas.
 
 👨‍💻 Desenvolvido por
+
 Marcos Cardoso
 
 Kauã Campaneir
