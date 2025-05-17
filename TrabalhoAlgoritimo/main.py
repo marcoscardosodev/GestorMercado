@@ -5,6 +5,7 @@ produtos = {
     "Arroz": {"preco": 5.50, "estoque": 10},
     "Feijão": {"preco": 7.00, "estoque": 8},
     "Macarrão": {"preco": 4.00, "estoque": 15}
+   
 }
 
 carrinho = {}
