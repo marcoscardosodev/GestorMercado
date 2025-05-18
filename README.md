@@ -73,7 +73,7 @@ Todos os dados são armazenados em memória — ao fechar o programa, as altera�
 
 Marcos Cardoso
 
-Kauã Campaneir
+Kauã Campaner
 
 Elias Henrique
 

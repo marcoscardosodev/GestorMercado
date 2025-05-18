@@ -1,20 +1,13 @@
 import tkinter as tk
 from tkinter import messagebox
-
-produtos_disponiveis = {
-    'Arroz': {'preco': 5.50, 'estoque': 10},
-    'Leite': {'preco': 3.20, 'estoque': 15},
-    'Pão': {'preco': 1.50, 'estoque': 20},
-    'Refrigerante': {'preco': 4.00, 'estoque': 12},
-    'Sabão': {'preco': 2.00, 'estoque': 8}
-}
+from dados import produtos as produtos_disponiveis
 
 class AdminPage(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Área do Administrador")
         self.geometry("450x400")
-        self.configure(bg="#fce4ec")  # Rosa claro
+        self.configure(bg="#fce4ec")
         self.resizable(False, False)
 
         tk.Label(self, text="Gerenciamento de Produtos", font=("Helvetica", 16, "bold"), bg="#fce4ec").pack(pady=15)
@@ -30,7 +23,6 @@ class AdminPage(tk.Tk):
         self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y, pady=10)
         self.lista_produtos.config(yscrollcommand=self.scrollbar.set)
 
-        # Frame de edição
         self.frame_edicao = tk.Frame(self, bg="#fce4ec")
         self.frame_edicao.pack(pady=10)
 
@@ -90,3 +82,7 @@ class AdminPage(tk.Tk):
         self.entry_produto.delete(0, tk.END)
         self.entry_preco.delete(0, tk.END)
         self.entry_estoque.delete(0, tk.END)
+
+if __name__ == "__main__":
+    app = AdminPage()
+    app.mainloop()

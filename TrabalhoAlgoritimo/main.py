@@ -1,14 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-
-produtos = {
-    "Arroz": {"preco": 5.50, "estoque": 10},
-    "Feijão": {"preco": 7.00, "estoque": 8},
-    "Macarrão": {"preco": 4.00, "estoque": 15}
-   
-}
-
-carrinho = {}
+from dados import produtos, carrinho
 
 def limpar_tela():
     for widget in root.winfo_children():

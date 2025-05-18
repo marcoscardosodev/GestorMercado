@@ -2,22 +2,18 @@ import tkinter as tk
 from tkinter import messagebox
 from admin import AdminPage
 from cliente import ClientePage
-
-# Usuário e senha pré-definidos (admin)
-USUARIO_ADMIN = "admin"
-SENHA_ADMIN = "1234"
+from dados import ADMIN_CREDENCIAIS
 
 class LoginPage(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Login - Mercado")
         self.geometry("400x300")
-        self.configure(bg="#e3f2fd")  # Azul claro
+        self.configure(bg="#e3f2fd")
         self.resizable(False, False)
 
-        # Escolha Admin ou Cliente
         self.label_intro = tk.Label(self, text="Você é Administrador ou Cliente?", 
-                                    bg="#e3f2fd", font=("Helvetica", 14, "bold"))
+                                  bg="#e3f2fd", font=("Helvetica", 14, "bold"))
         self.label_intro.pack(pady=20)
 
         self.frame_buttons = tk.Frame(self, bg="#e3f2fd")
@@ -29,9 +25,8 @@ class LoginPage(tk.Tk):
         btn_cliente = tk.Button(self.frame_buttons, text="Cliente", width=15, command=self.login_cliente)
         btn_cliente.grid(row=0, column=1, padx=10)
 
-        # Frame do login (oculto inicialmente)
         self.frame_login = tk.Frame(self, bg="#bbdefb", padx=20, pady=20, relief=tk.RIDGE, borderwidth=2)
-        # Campos do login
+        
         tk.Label(self.frame_login, text="Usuário:", bg="#bbdefb", font=("Arial", 12)).grid(row=0, column=0, sticky="w", pady=5)
         self.entry_usuario = tk.Entry(self.frame_login, font=("Arial", 12))
         self.entry_usuario.grid(row=0, column=1, pady=5)
@@ -49,7 +44,7 @@ class LoginPage(tk.Tk):
     def verificar_login(self):
         usuario = self.entry_usuario.get()
         senha = self.entry_senha.get()
-        if usuario == USUARIO_ADMIN and senha == SENHA_ADMIN:
+        if usuario == ADMIN_CREDENCIAIS["usuario"] and senha == ADMIN_CREDENCIAIS["senha"]:
             messagebox.showinfo("Login", "Login de administrador realizado com sucesso!")
             self.destroy()
             AdminPage().mainloop()
@@ -59,7 +54,6 @@ class LoginPage(tk.Tk):
     def login_cliente(self):
         self.destroy()
         ClientePage().mainloop()
-
 
 if __name__ == "__main__":
     app = LoginPage()

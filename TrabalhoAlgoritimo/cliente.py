@@ -1,14 +1,13 @@
 import tkinter as tk
 from tkinter import messagebox
-
-from admin import produtos_disponiveis  # Importa o dicionário global
+from dados import produtos as produtos_disponiveis
 
 class ClientePage(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Cliente - Mercado")
         self.geometry("450x450")
-        self.configure(bg="#e8f5e9")  # Verde claro
+        self.configure(bg="#e8f5e9")
         self.resizable(False, False)
 
         tk.Label(self, text="Faça suas compras", font=("Helvetica", 16, "bold"), bg="#e8f5e9", fg="#2e7d32").pack(pady=15)
@@ -59,7 +58,6 @@ class ClientePage(tk.Tk):
             messagebox.showerror("Erro", f"Quantidade indisponível. Estoque atual: {estoque_atual}")
             return
 
-        # Adiciona ou atualiza quantidade no carrinho
         if produto in self.carrinho:
             self.carrinho[produto] += quantidade
         else:
@@ -80,7 +78,6 @@ class ClientePage(tk.Tk):
             messagebox.showinfo("Carrinho Vazio", "Adicione produtos antes de finalizar a compra.")
             return
 
-        # Atualiza estoque dos produtos
         for produto, qtd in self.carrinho.items():
             produtos_disponiveis[produto]['estoque'] -= qtd
 
