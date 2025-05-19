@@ -6,7 +6,7 @@ class ClientePage(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Cliente - Mercado")
-        self.geometry("450x450")
+        self.geometry("600x650")
         self.configure(bg="#e8f5e9")
         self.resizable(False, False)
 
@@ -29,9 +29,20 @@ class ClientePage(tk.Tk):
         self.lista_carrinho.pack(padx=20, pady=5, fill=tk.X)
 
         self.btn_finalizar = tk.Button(self, text="Finalizar Compra", font=("Arial", 12, "bold"), bg="#388e3c", fg="white", command=self.finalizar_compra)
-        self.btn_finalizar.pack(pady=15)
+        self.btn_finalizar.pack(pady=10)
+
+        # Botão Voltar adicionado aqui
+        self.btn_voltar = tk.Button(self, text="Voltar ao Login", font=("Arial", 12, "bold"), 
+                                   bg="#c62828", fg="white", command=self.voltar_login)
+        self.btn_voltar.pack(pady=10)
 
         self.carrinho = {}
+
+    def voltar_login(self):
+        """Fecha a janela atual e retorna para a página de login"""
+        self.destroy()
+        from login import LoginPage
+        LoginPage().mainloop()
 
     def atualizar_lista(self):
         self.lista_produtos.delete(0, tk.END)
@@ -78,13 +89,17 @@ class ClientePage(tk.Tk):
             messagebox.showinfo("Carrinho Vazio", "Adicione produtos antes de finalizar a compra.")
             return
 
+        valor_total = 0
         for produto, qtd in self.carrinho.items():
+            preco = produtos_disponiveis[produto]['preco']
+            valor_total += preco * qtd
             produtos_disponiveis[produto]['estoque'] -= qtd
 
-        messagebox.showinfo("Compra Finalizada", "Obrigado pela compra! Seu pedido foi registrado.")
+        messagebox.showinfo("Compra Finalizada", f"Obrigado pela compra! \nValor total: R${valor_total:.2f}")
         self.carrinho.clear()
         self.atualizar_carrinho()
         self.atualizar_lista()
+
 
 if __name__ == "__main__":
     app = ClientePage()
