@@ -4,7 +4,7 @@ Módulo para armazenamento centralizado dos dados da aplicação
 
 # Dicionário de produtos disponíveis na loja
 produtos = {
-    "Arroz": {"preco": 5.50, "estoque": 10},
+    "Arroz": {"preco": 5.50, "estoque": 10},  # Produto com preço e estoque
     "Feijão": {"preco": 7.00, "estoque": 8},
     "Macarrão": {"preco": 4.00, "estoque": 15},
     "Leite": {"preco": 3.20, "estoque": 15},
@@ -14,10 +14,10 @@ produtos = {
 }
 
 # Carrinho de compras (inicialmente vazio)
-carrinho = {}
+carrinho = {}  # Será usado para armazenar itens selecionados
 
-# Senha do administrador
+# Credenciais do administrador
 ADMIN_CREDENCIAIS = {
-    "usuario": "admin",
-    "senha": "1234"
+    "usuario": "admin",  # Nome de usuário do admin
+    "senha": "1234"      # Senha do admin
 }
