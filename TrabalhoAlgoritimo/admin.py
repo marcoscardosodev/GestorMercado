@@ -6,7 +6,7 @@ class AdminPage(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Área do Administrador")
-        self.geometry("600x700")  # Aumentei a altura para 700 para acomodar o botão Voltar
+        self.geometry("600x750")  
         self.configure(bg="#fce4ec")
         self.resizable(False, False)
 
@@ -62,16 +62,33 @@ class AdminPage(tk.Tk):
         )
         self.btn_aplicar_estoque.pack(side=tk.LEFT)
 
-        # Botão principal
+        # Frame para os botões de ação
+        self.frame_botoes_acao = tk.Frame(self.frame_edicao, bg="#fce4ec")
+        self.frame_botoes_acao.grid(row=3, column=0, columnspan=2, pady=15)
+
+        # Botão Adicionar/Atualizar
         self.btn_adicionar = tk.Button(
-            self.frame_edicao, 
+            self.frame_botoes_acao, 
             text="Adicionar / Atualizar", 
             command=self.adicionar_atualizar_produto, 
             bg="#ec407a", 
             fg="white", 
-            font=("Arial", 12, "bold")
+            font=("Arial", 12, "bold"),
+            width=15
         )
-        self.btn_adicionar.grid(row=3, column=0, columnspan=2, pady=15)
+        self.btn_adicionar.pack(side=tk.LEFT, padx=5)
+
+        # Botão Remover
+        self.btn_remover = tk.Button(
+            self.frame_botoes_acao, 
+            text="Remover", 
+            command=self.remover_produto, 
+            bg="#c62828", 
+            fg="white", 
+            font=("Arial", 12, "bold"),
+            width=15
+        )
+        self.btn_remover.pack(side=tk.LEFT, padx=5)
 
         # Frame para o botão Voltar
         self.frame_botoes = tk.Frame(self.main_frame, bg="#fce4ec")
@@ -170,6 +187,29 @@ class AdminPage(tk.Tk):
         self.entry_preco.delete(0, tk.END)
         self.spin_estoque.delete(0, tk.END)
         self.spin_estoque.insert(0, "0")
+
+    def remover_produto(self):
+        if not self.lista_produtos.curselection():
+            messagebox.showwarning("Aviso", "Selecione um produto para remover!")
+            return
+            
+        produto = self.entry_produto.get().strip()
+        if produto not in produtos_disponiveis:
+            messagebox.showerror("Erro", "Produto não encontrado!")
+            return
+            
+        # Confirmação antes de remover
+        resposta = messagebox.askyesno("Confirmar", f"Tem certeza que deseja remover o produto '{produto}'?")
+        if resposta:
+            del produtos_disponiveis[produto]
+            self.atualizar_lista()
+            messagebox.showinfo("Sucesso", f"Produto '{produto}' removido com sucesso!")
+            
+            # Limpa os campos após a remoção
+            self.entry_produto.delete(0, tk.END)
+            self.entry_preco.delete(0, tk.END)
+            self.spin_estoque.delete(0, tk.END)
+            self.spin_estoque.insert(0, "0")
 
 if __name__ == "__main__":
     app = AdminPage()
