@@ -34,17 +34,20 @@ Programação orientada a objetos
 
 Armazenamento em memória (sem uso de banco de dados)
 
-📁 Organização do Projeto
-bash
-Copiar
-Editar
-projeto-vendas/
+## 📁 Organização do Projeto
+* bash
+* Copiar
+* Editar
+* rojeto-vendas/
 
-├── main.py                  # Tela inicial com seleção de tipo de usuário
-├── cliente.py               # Interface e lógica para o cliente
-├── admin.py                 # Interface e lógica para o administrador
-├── dados.py                 # Lista de produtos e lógica compartilhada
-└── README.md                # Documentação do projeto
+```
+* ├── main.py                  # Tela inicial
+* ├── login.py                 # Tela com seleção de tipo de usuário
+* ├── cliente.py               # Interface e lógica para o cliente
+* ├── admin.py                 # Interface e lógica para o administrador
+* ├── dados.py                 # Lista de produtos e lógica compartilhada
+* └── README.md                # Documentação do projeto
+```
 
 👤 Credenciais de Administrador
 Usuário: admin
