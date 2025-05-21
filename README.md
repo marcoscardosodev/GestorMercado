@@ -69,6 +69,15 @@ Este projeto foi desenvolvido como trabalho acadêmico.
 
 Todos os dados são armazenados em memória — ao fechar o programa, as alterações são perdidas.
 
+# LoginPage
+![image](https://github.com/user-attachments/assets/deda5286-fa9d-4079-b6eb-bccbbb448bff)
+
+# ClientePage
+![image](https://github.com/user-attachments/assets/6096a354-48e2-438e-a74e-002a4d79aa5d)
+
+# AdminPage
+![image](https://github.com/user-attachments/assets/431ab1a7-f9ec-4531-a2a3-7f67c12226b4)
+
 👨‍💻 Desenvolvido por
 
 Marcos Cardoso
