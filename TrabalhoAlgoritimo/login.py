@@ -10,7 +10,6 @@ class LoginPage(tk.Tk):  # Define a classe principal herdando de tk.Tk
         self.title("Login - Mercado")  # Define o título da janela
         self.geometry("600x400")  # Define o tamanho da janela
         self.configure(bg="#e3f2fd")  # Configura cor de fundo
-        self.resizable(False, False)  # Impede redimensionamento
 
         # Frame principal para centralizar conteúdo
         self.main_frame = tk.Frame(self, bg="#e3f2fd")

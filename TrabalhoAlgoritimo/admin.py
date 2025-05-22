@@ -9,7 +9,6 @@ class AdminPage(tk.Tk):
         self.title("Área do Administrador")  # Título da janela
         self.geometry("600x750")  # Define tamanho fixo da janela
         self.configure(bg="#fce4ec")  # Cor de fundo rosa claro
-        self.resizable(False, False)  # Impede redimensionamento
 
         # Frame principal que organiza todo o conteúdo
         self.main_frame = tk.Frame(self, bg="#fce4ec")

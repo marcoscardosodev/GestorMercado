@@ -9,7 +9,6 @@ class ClientePage(tk.Tk):
         self.title("Cliente - Mercado")
         self.geometry("600x750")
         self.configure(bg="#e8f5e9")
-        self.resizable(False, False)
 
         # Frame principal
         self.main_frame = tk.Frame(self, bg="#e8f5e9")
